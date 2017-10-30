@@ -1,0 +1,31 @@
+TODO
+zombies - model, patrol path, stats, 
+guns - machine gun, ammo, shooting, projectiles, damage, sound, aiming cone
+models - zombie, car, trees, rocks, guns
+map - grass, rocks, uneveness, enemies, items
+player - stats, lighting / vision cone
+game - gameover, win
+animations - pick up, hit, knockdown, death, zombie walk
+effects - blood, mist, shadows and lighting, flashlight
+
+
+do ammo, zombie animations - lunge, attack
+
+
+
+
+DONE
+guns - pistol, shotgun
+models - player
+player - movement, shooting, inventory
+animations - walk, run, hold weapon
+zombies - ai (vision + sound), 
+zombie animations - walk, knockdown front/back, stand up front/back, stagger back, swipe
+
+
+BUGS
+hit animation conflicting with walkstart
+
+
+cannon fodder
+RTS

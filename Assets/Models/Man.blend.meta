@@ -1,0 +1,1261 @@
+fileFormatVersion: 2
+guid: 82af3eaeac00f4a4e8ff28281f527af2
+timeCreated: 1507523320
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Armature
+    100002: Cube
+    100004: Foot_L
+    100006: Foot_R
+    100008: Hand_L
+    100010: Hand_R
+    100012: Head
+    100014: LowerArm_L
+    100016: LowerArm_R
+    100018: LowerLeg_L
+    100020: LowerLeg_R
+    100022: LowerLegIK_L
+    100024: //RootNode
+    100026: Root
+    100028: Spine_L
+    100030: UpperArm_L
+    100032: UpperArm_R
+    100034: UpperLeg_L
+    100036: UpperLeg_R
+    100038: Spine
+    100040: Pistol
+    100042: Pistol_0
+    100044: Shotgun
+    100046: Weapon_R
+    400000: Armature
+    400002: Cube
+    400004: Foot_L
+    400006: Foot_R
+    400008: Hand_L
+    400010: Hand_R
+    400012: Head
+    400014: LowerArm_L
+    400016: LowerArm_R
+    400018: LowerLeg_L
+    400020: LowerLeg_R
+    400022: LowerLegIK_L
+    400024: //RootNode
+    400026: Root
+    400028: Spine_L
+    400030: UpperArm_L
+    400032: UpperArm_R
+    400034: UpperLeg_L
+    400036: UpperLeg_R
+    400038: Spine
+    400040: Pistol
+    400042: Pistol_0
+    400044: Shotgun
+    400046: Weapon_R
+    4300000: Cube
+    4300002: Pistol
+    4300004: Shotgun
+    7400000: Default Take
+    7400002: ArmatureAction
+    7400004: Walk
+    7400006: Walk (1)
+    7400008: Idle
+    7400010: Walk (2)
+    7400012: TPose
+    7400014: Run
+    7400016: AimPistol
+    7400018: ShootPistol
+    7400020: ReloadPistol
+    7400022: AimShotgun
+    7400024: ShootShotgun
+    7400026: PumpShotgun
+    7400028: ReloadMainShotgun
+    7400030: ReloadShellShotgun
+    7400032: ReloadEndShotgun
+    9500000: //RootNode
+    13700000: Cube
+    13700002: Pistol
+    13700004: Shotgun
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: <Root Transform>
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: "\nClip 'Default Take' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'UpperLeg_L' has scale animation that will
+      be discarded.\n\t'LowerLeg_L' has scale animation that will be discarded.\n\t'UpperLeg_R'
+      has scale animation that will be discarded.\n\t'LowerLeg_R' has scale animation
+      that will be discarded.\n\t'Foot_R' has scale animation that will be discarded.\n\nClip
+      'Idle' has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'Spine'
+      has translation animation that will be discarded.\n\nClip 'Run' has import animation
+      warnings that might lower retargeting quality:\nNote: Activate translation DOF
+      on avatar to improve retargeting quality.\n\t'Spine' has translation animation
+      that will be discarded.\n\t'UpperLeg_L' has scale animation that will be discarded.\n\t'LowerLeg_L'
+      has scale animation that will be discarded.\n\t'UpperLeg_R' has scale animation
+      that will be discarded.\n\t'LowerLeg_R' has scale animation that will be discarded.\n\t'Foot_R'
+      has scale animation that will be discarded.\n\nClip 'ShootShotgun' has import
+      animation warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'UpperLeg_L' has scale animation
+      that will be discarded.\n\t'LowerLeg_L' has scale animation that will be discarded.\n\t'UpperLeg_R'
+      has scale animation that will be discarded.\n\t'LowerLeg_R' has scale animation
+      that will be discarded.\n\t'Foot_R' has scale animation that will be discarded.\n\nClip
+      'Walk' has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'Spine'
+      has translation animation that will be discarded.\n\t'UpperLeg_L' has scale
+      animation that will be discarded.\n\t'LowerLeg_L' has scale animation that will
+      be discarded.\n\t'UpperLeg_R' has scale animation that will be discarded.\n\t'LowerLeg_R'
+      has scale animation that will be discarded.\n\t'Foot_R' has scale animation
+      that will be discarded.\n"
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Idle
+      firstFrame: 0
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Root
+        weight: 1
+      - path: Armature/Root/Spine
+        weight: 1
+      - path: Armature/Root/Spine/Head
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_L/LowerArm_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_L/LowerArm_L/Hand_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_R/LowerArm_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_R/LowerArm_R/Hand_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_L/LowerLeg_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_L/LowerLeg_L/Foot_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_R/LowerLeg_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_R/LowerLeg_R/Foot_R
+        weight: 1
+      - path: Cube
+        weight: 0
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: TPose
+      takeName: TPose
+      firstFrame: 0
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Root
+        weight: 1
+      - path: Armature/Root/Spine
+        weight: 1
+      - path: Armature/Root/Spine/Head
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_L/LowerArm_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_L/LowerArm_L/Hand_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_R/LowerArm_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_R/LowerArm_R/Hand_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_L/LowerLeg_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_L/LowerLeg_L/Foot_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_R/LowerLeg_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_R/LowerLeg_R/Foot_R
+        weight: 1
+      - path: Cube
+        weight: 0
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Walk
+      takeName: Walk
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 0
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 1
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Root
+        weight: 1
+      - path: Armature/Root/Spine
+        weight: 1
+      - path: Armature/Root/Spine/Head
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_L/LowerArm_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_L/LowerArm_L/Hand_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_R/LowerArm_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_R/LowerArm_R/Hand_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_L/LowerLeg_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_L/LowerLeg_L/Foot_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_R/LowerLeg_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_R/LowerLeg_R/Foot_R
+        weight: 1
+      - path: Cube
+        weight: 0
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Run
+      takeName: Run
+      firstFrame: 0
+      lastFrame: 13
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Root
+        weight: 1
+      - path: Armature/Root/Spine
+        weight: 1
+      - path: Armature/Root/Spine/Head
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_L/LowerArm_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_L/LowerArm_L/Hand_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_R/LowerArm_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_R/LowerArm_R/Hand_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_L/LowerLeg_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_L/LowerLeg_L/Foot_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_R/LowerLeg_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_R/LowerLeg_R/Foot_R
+        weight: 1
+      - path: Cube
+        weight: 0
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: AimPistol
+      takeName: AimPistol
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Root
+        weight: 1
+      - path: Armature/Root/Spine
+        weight: 1
+      - path: Armature/Root/Spine/Head
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_L/LowerArm_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_L/LowerArm_L/Hand_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_R/LowerArm_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_R/LowerArm_R/Hand_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_L/LowerLeg_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_L/LowerLeg_L/Foot_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_R/LowerLeg_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_R/LowerLeg_R/Foot_R
+        weight: 1
+      - path: Cube
+        weight: 0
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: ShootPistol
+      takeName: ShootPistol
+      firstFrame: 0
+      lastFrame: 6
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Root
+        weight: 1
+      - path: Armature/Root/Spine
+        weight: 1
+      - path: Armature/Root/Spine/Head
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_L/LowerArm_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_L/LowerArm_L/Hand_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_R/LowerArm_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_R/LowerArm_R/Hand_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_L/LowerLeg_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_L/LowerLeg_L/Foot_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_R/LowerLeg_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_R/LowerLeg_R/Foot_R
+        weight: 1
+      - path: Cube
+        weight: 0
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: ReloadPistol
+      takeName: ReloadPistol
+      firstFrame: 0
+      lastFrame: 22
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Root
+        weight: 1
+      - path: Armature/Root/Spine
+        weight: 1
+      - path: Armature/Root/Spine/Head
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_L/LowerArm_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_L/LowerArm_L/Hand_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_R/LowerArm_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_R/LowerArm_R/Hand_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_L/LowerLeg_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_L/LowerLeg_L/Foot_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_R/LowerLeg_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_R/LowerLeg_R/Foot_R
+        weight: 1
+      - path: Cube
+        weight: 0
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: AimShotgun
+      takeName: AimShotgun
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Root
+        weight: 1
+      - path: Armature/Root/Spine
+        weight: 1
+      - path: Armature/Root/Spine/Head
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_L/LowerArm_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_L/LowerArm_L/Hand_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_R/LowerArm_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_R/LowerArm_R/Hand_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_R/LowerArm_R/Hand_R/Weapon_R
+        weight: 0
+      - path: Armature/Root/Spine/UpperLeg_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_L/LowerLeg_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_L/LowerLeg_L/Foot_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_R/LowerLeg_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_R/LowerLeg_R/Foot_R
+        weight: 1
+      - path: Cube
+        weight: 0
+      - path: Pistol
+        weight: 0
+      - path: Shotgun
+        weight: 0
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: ShootShotgun
+      takeName: ShootShotgun
+      firstFrame: 0
+      lastFrame: 6
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Root
+        weight: 1
+      - path: Armature/Root/Spine
+        weight: 1
+      - path: Armature/Root/Spine/Head
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_L/LowerArm_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_L/LowerArm_L/Hand_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_R/LowerArm_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_R/LowerArm_R/Hand_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_R/LowerArm_R/Hand_R/Weapon_R
+        weight: 0
+      - path: Armature/Root/Spine/UpperLeg_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_L/LowerLeg_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_L/LowerLeg_L/Foot_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_R/LowerLeg_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_R/LowerLeg_R/Foot_R
+        weight: 1
+      - path: Cube
+        weight: 0
+      - path: Pistol
+        weight: 0
+      - path: Shotgun
+        weight: 0
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: PumpShotgun
+      takeName: PumpShotgun
+      firstFrame: 0
+      lastFrame: 12
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Root
+        weight: 1
+      - path: Armature/Root/Spine
+        weight: 1
+      - path: Armature/Root/Spine/Head
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_L/LowerArm_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_L/LowerArm_L/Hand_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_R/LowerArm_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_R/LowerArm_R/Hand_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_R/LowerArm_R/Hand_R/Weapon_R
+        weight: 0
+      - path: Armature/Root/Spine/UpperLeg_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_L/LowerLeg_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_L/LowerLeg_L/Foot_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_R/LowerLeg_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_R/LowerLeg_R/Foot_R
+        weight: 1
+      - path: Cube
+        weight: 0
+      - path: Pistol
+        weight: 0
+      - path: Shotgun
+        weight: 0
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: ReloadMainShotgun
+      takeName: ReloadMainShotgun
+      firstFrame: 0
+      lastFrame: 19
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Root
+        weight: 1
+      - path: Armature/Root/Spine
+        weight: 1
+      - path: Armature/Root/Spine/Head
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_L/LowerArm_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_L/LowerArm_L/Hand_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_R/LowerArm_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_R/LowerArm_R/Hand_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_R/LowerArm_R/Hand_R/Weapon_R
+        weight: 0
+      - path: Armature/Root/Spine/UpperLeg_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_L/LowerLeg_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_L/LowerLeg_L/Foot_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_R/LowerLeg_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_R/LowerLeg_R/Foot_R
+        weight: 1
+      - path: Cube
+        weight: 0
+      - path: Pistol
+        weight: 0
+      - path: Shotgun
+        weight: 0
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: ReloadShellShotgun
+      takeName: ReloadShellShotgun
+      firstFrame: 0
+      lastFrame: 12
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Root
+        weight: 1
+      - path: Armature/Root/Spine
+        weight: 1
+      - path: Armature/Root/Spine/Head
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_L/LowerArm_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_L/LowerArm_L/Hand_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_R/LowerArm_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_R/LowerArm_R/Hand_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_R/LowerArm_R/Hand_R/Weapon_R
+        weight: 0
+      - path: Armature/Root/Spine/UpperLeg_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_L/LowerLeg_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_L/LowerLeg_L/Foot_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_R/LowerLeg_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_R/LowerLeg_R/Foot_R
+        weight: 1
+      - path: Cube
+        weight: 0
+      - path: Pistol
+        weight: 0
+      - path: Shotgun
+        weight: 0
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: ReloadEndShotgun
+      takeName: ReloadEndShotgun
+      firstFrame: 0
+      lastFrame: 9
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Root
+        weight: 1
+      - path: Armature/Root/Spine
+        weight: 1
+      - path: Armature/Root/Spine/Head
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_L/LowerArm_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_L/LowerArm_L/Hand_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_R/LowerArm_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_R/LowerArm_R/Hand_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperArm_R/LowerArm_R/Hand_R/Weapon_R
+        weight: 0
+      - path: Armature/Root/Spine/UpperLeg_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_L/LowerLeg_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_L/LowerLeg_L/Foot_L
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_R/LowerLeg_R
+        weight: 1
+      - path: Armature/Root/Spine/UpperLeg_R/LowerLeg_R/Foot_R
+        weight: 1
+      - path: Cube
+        weight: 0
+      - path: Pistol
+        weight: 0
+      - path: Shotgun
+        weight: 0
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human:
+    - boneName: Armature
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Root
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Spine
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: UpperArm_L
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: UpperArm_R
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LowerArm_L
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LowerArm_R
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Hand_L
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Hand_R
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: UpperLeg_L
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LowerLeg_L
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foot_L
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: UpperLeg_R
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LowerLeg_R
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foot_R
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: Man(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Armature
+      parentName: Man(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Root
+      parentName: Armature
+      position: {x: -0, y: 0, z: -0.07097855}
+      rotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Spine
+      parentName: Root
+      position: {x: -0, y: 0, z: 5}
+      rotation: {x: 0.7071068, y: 0.00000009415696, z: -0.7071067, w: 0.00000009415697}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Head
+      parentName: Spine
+      position: {x: -2.4417276, y: 0.00000018434534, z: 0}
+      rotation: {x: 0.0000000754979, y: -5.6985e-15, z: 4.302248e-22, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: UpperArm_L
+      parentName: Spine
+      position: {x: -1.9426566, y: -1.3573836, z: -0.0064450465}
+      rotation: {x: 0.000000099388416, y: -0.00000006142621, z: 0.7023897, w: 0.7117926}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1}
+    - name: LowerArm_L
+      parentName: UpperArm_L
+      position: {x: -1.5668042, y: 0.00000017847113, z: -4.8146e-11}
+      rotation: {x: 0.00000013640457, y: 0.000000040510812, z: 0.012601065, w: 0.9999206}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1}
+    - name: Hand_L
+      parentName: LowerArm_L
+      position: {x: -1.4955591, y: -0.000000039347928, z: -3.8993e-11}
+      rotation: {x: 0.00000009774101, y: -0.0000000026227593, z: -0.005952462, w: 0.9999823}
+      scale: {x: 1, y: 1, z: 1}
+    - name: UpperArm_R
+      parentName: Spine
+      position: {x: -1.9426564, y: 1.3573838, z: -0.0064446367}
+      rotation: {x: 0.000000008087497, y: 0.000000044629857, z: -0.7023897, w: 0.7117926}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1}
+    - name: LowerArm_R
+      parentName: UpperArm_R
+      position: {x: -1.5668042, y: 0.0000002648384, z: -3.277e-11}
+      rotation: {x: -0.00000013640464, y: 0.000000040510834, z: -0.012601065, w: 0.9999206}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1}
+    - name: Hand_R
+      parentName: LowerArm_R
+      position: {x: -1.4955592, y: 0.00000022933773, z: -1.7391e-11}
+      rotation: {x: -0.00000009774099, y: -0.0000000026227445, z: 0.005952462, w: 0.9999823}
+      scale: {x: 1, y: 1, z: 1}
+    - name: UpperLeg_L
+      parentName: Spine
+      position: {x: 0.22931094, y: -0.520642, z: 0.013396602}
+      rotation: {x: -0.01135777, y: -0.0078120125, z: 0.999905, w: 0.000082211605}
+      scale: {x: 1.0000004, y: 1, z: 1.0006356}
+    - name: LowerLeg_L
+      parentName: UpperLeg_L
+      position: {x: -2.3653722, y: 0.00000025501868, z: 0.000000018626451}
+      rotation: {x: -0.000008590005, y: -0.024652138, z: -0.0044386587, w: 0.99968624}
+      scale: {x: 0.99999994, y: 1, z: 1.0000027}
+    - name: Foot_L
+      parentName: LowerLeg_L
+      position: {x: -2.012523, y: 0.00000020234438, z: -0.000000002793968}
+      rotation: {x: -0.002595869, y: 0.6079714, z: 0.0035827833, w: 0.7939466}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: UpperLeg_R
+      parentName: Spine
+      position: {x: 0.22931103, y: 0.520642, z: 0.013396759}
+      rotation: {x: -0.0113577815, y: 0.0078119026, z: 0.999905, w: -0.00008221276}
+      scale: {x: 1.0000004, y: 1, z: 1.0006363}
+    - name: LowerLeg_R
+      parentName: UpperLeg_R
+      position: {x: -2.3653724, y: 0.000000075928256, z: 0.000000020489097}
+      rotation: {x: 0.000008521617, y: -0.024652181, z: 0.0044386694, w: 0.99968624}
+      scale: {x: 1, y: 1, z: 1.0000027}
+    - name: Foot_R
+      parentName: LowerLeg_R
+      position: {x: -2.012523, y: 0.0000001596054, z: -0.000000007450581}
+      rotation: {x: -0.0037248642, y: 0.6078775, z: -0.0081914915, w: 0.7939798}
+      scale: {x: 1.000103, y: 0.9999994, z: 1.000534}
+    - name: Cube
+      parentName: Man(Clone)
+      position: {x: -0, y: 0, z: 5.992537}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 3
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
