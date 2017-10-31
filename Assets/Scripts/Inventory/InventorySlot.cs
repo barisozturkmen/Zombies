@@ -5,6 +5,7 @@ public class InventorySlot : MonoBehaviour {
 
     public Image icon;
     public GameObject removeButtonGO;
+    public Text quantity;
 
     private Item item;
 
@@ -15,6 +16,18 @@ public class InventorySlot : MonoBehaviour {
         icon.sprite = item.icon;
         icon.enabled = true;
         removeButtonGO.SetActive(true);
+
+        if (item is Stackable)
+        {
+            Stackable stackableItem = item as Stackable;
+            quantity.enabled = true;
+            quantity.text = stackableItem.quantity.ToString();
+        }
+        else
+        {
+            quantity.enabled = false;
+        }
+
     }
 
     public void ClearSlot()
@@ -24,6 +37,7 @@ public class InventorySlot : MonoBehaviour {
         icon.sprite = null;
         icon.enabled = false;
         removeButtonGO.SetActive(false);
+        quantity.enabled = false;
     }
 
     public void OnRemoveButton()

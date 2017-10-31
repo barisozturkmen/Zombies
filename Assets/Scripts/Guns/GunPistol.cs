@@ -8,13 +8,16 @@ public class GunPistol : Gun {
 
     public GunPistol()
     {
+        range = 100f;
         shotTime = 0.6f;
-        muzzleVelocity = 120f;
+        muzzleVelocity = 150f;
         reloadTime = 1f;
         weaponType = WeaponType.Pistol;
         fireMode = FireMode.Single;
         burstCount = 3;
         shotsRemainingInBurst = burstCount;
+        ammoType = AmmoType.NineMil;
+        magazineCapacity = 15;
     }
 
     private void Start()
@@ -48,6 +51,14 @@ public class GunPistol : Gun {
                 newProjectile.SetSpeed(muzzleVelocity);
                 nextPossibleShootTime = Time.time + shotTime;
             }
+
+            RaycastHit hit;
+            Vector3 forward = this.transform.TransformDirection(Vector3.forward);
+            if (Physics.Raycast(transform.position, forward, out hit, range, hitableLayerID))
+            {
+                Debug.Log("HIT ZOMBIE!!");
+            }
+            ammoInMagazine -= 1;
             audioSource.Play();
             Instantiate(shell, shellEjector.position, shellEjector.rotation);
             muzzleFlash.Activate();
@@ -66,7 +77,7 @@ public class GunPistol : Gun {
     public override bool CanShoot()
     {
         bool canShoot = true;
-        if (Time.time < nextPossibleShootTime)
+        if ((Time.time < nextPossibleShootTime) || (ammoInMagazine <= 0))
         {
             canShoot = false;
         }

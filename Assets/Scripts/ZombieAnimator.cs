@@ -46,7 +46,6 @@ public class ZombieAnimator : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        PlayKnockdownBack();
 
     }
 
@@ -152,26 +151,31 @@ public class ZombieAnimator : MonoBehaviour {
 
     public void PlayKnockdownBack()
     {
-        if (Input.GetButtonDown("Shoot"))
-        {
-            StopAllCoroutines();
-            StartCoroutine(KnockdownBack());
-            Debug.Log("pressed");
-        }
+        StopAllCoroutines();
+        StartCoroutine(KnockdownBack());
     }
 
     public void PlayKnockdownFront()
     {
+
+        StopAllCoroutines();
+        StartCoroutine(KnockdownFront());
+
+    }
+
+    public void PlayStandUpBack()
+    {
+
+        StopAllCoroutines();
+        StartCoroutine(StandUpBack());
 
     }
 
     public void PlayStandUpFront()
     {
 
-    }
-
-    public void PlayStandUpBack()
-    {
+        StopAllCoroutines();
+        StartCoroutine(StandUpFront());
 
     }
 
@@ -306,40 +310,119 @@ public class ZombieAnimator : MonoBehaviour {
     {
         _zombieController.playingAnimation = true;
         _zombieController.isWalking = false;
-
+        _navMeshAgent.enabled = false;
         float completionAmount = 0f;
         float rotationCompletionAmount = 0f;
         float knockdownTIme = KnockdownTime();
-        Quaternion knockDownRotation = Quaternion.Euler(-90, this.transform.eulerAngles.y, this.transform.eulerAngles.z);
-        float height = 0f;
-        while (completionAmount < _knockdownBackTime + knockdownTIme)
+        //Quaternion knockDownRotation = Quaternion.Euler(-90, this.transform.eulerAngles.y, this.transform.eulerAngles.z);
+        float height = 0.7f;
+        //float 
+        this.transform.position = new Vector2(this.transform.position.x, height);
+        while (completionAmount < _knockdownBackTime + knockdownTIme + 10)
         {
-            rotationCompletionAmount = (completionAmount * 1.5f);
-            //if (this.transform.eulerAngles.x >= -90f ||
-            //    completionAmount < _knockdownBackTime / 1.5)
-            //{
-            height = Mathf.Lerp(0, 0.61f, rotationCompletionAmount);
-                this.transform.rotation = Quaternion.Slerp(transform.rotation, knockDownRotation, rotationCompletionAmount);
-                this.transform.position = new Vector2(this.transform.position.x, height);
-            //}
+            rotationCompletionAmount = (completionAmount * 3.2f);
+
+            this.transform.rotation = Quaternion.Euler(Mathf.Lerp(0, -90, rotationCompletionAmount), this.transform.rotation.y, this.transform.rotation.z);
             completionAmount += Time.deltaTime;
             _animator.Play(ZombieAnimations.Knockdown_Back.ToString());
             yield return null;
 
         }
+        //_navMeshAgent.enabled = true;
+        //_zombieController.playingAnimation = false;
+        yield return null;
+    }
+
+    private IEnumerator KnockdownFront()
+    {
+        _zombieController.playingAnimation = true;
+        _zombieController.isWalking = false;
+        _navMeshAgent.enabled = false;
+        float completionAmount = 0f;
+        float rotationCompletionAmount = 0f;
+        float knockdownTIme = KnockdownTime();
+        //Quaternion knockDownRotation = Quaternion.Euler(90, this.transform.eulerAngles.y, this.transform.eulerAngles.z);
+        float height = 0.7f;
+        this.transform.position = new Vector2(this.transform.position.x, height);
+        while (completionAmount < _knockdownFrontTime + knockdownTIme)
+        {
+            rotationCompletionAmount = (completionAmount * 3.2f);
+            //if (this.transform.eulerAngles.x >= -90f ||
+            //    completionAmount < _knockdownBackTime / 1.5)
+            //{
+            //height = Mathf.Lerp(0, 0.61f, rotationCompletionAmount * 2f);
+            this.transform.rotation = Quaternion.Euler(Mathf.Lerp(0, 90, rotationCompletionAmount), this.transform.rotation.y, this.transform.rotation.z);
+
+
+            //}
+
+            completionAmount += Time.deltaTime;
+            _animator.Play(ZombieAnimations.Knockdown_Front.ToString());
+            yield return null;
+
+        }
+        _navMeshAgent.enabled = true;
         _zombieController.playingAnimation = false;
         yield return null;
     }
 
+
     private IEnumerator StandUpBack()
     {
-        _animator.Play(ZombieAnimations.StandUp_Back.ToString());
+        _zombieController.playingAnimation = true;
+        _zombieController.isWalking = false;
+        _navMeshAgent.enabled = false;
+        float completionAmount = 0f;
+        float rotationCompletionAmount = 0f;
+        while (completionAmount < _standUpBackTime)
+        {
+            if ((completionAmount / _standUpBackTime) >= 0.5f)
+            {
+                rotationCompletionAmount = ((completionAmount / _standUpBackTime) - 0.5f) * 2f;
+            }
+
+            this.transform.rotation = Quaternion.Euler(Mathf.Lerp(-90, 0, rotationCompletionAmount), this.transform.rotation.y, this.transform.rotation.z);
+
+            completionAmount += Time.deltaTime;
+            _animator.Play(ZombieAnimations.StandUp_Back.ToString());
+            yield return null;
+        }
+
+
+        _navMeshAgent.enabled = true;
+        _zombieController.playingAnimation = false;
         yield return null;
     }
 
     private IEnumerator StandUpFront()
     {
-        _animator.Play(ZombieAnimations.StandUp_Front.ToString());
+        _zombieController.playingAnimation = true;
+        _zombieController.isWalking = false;
+        _navMeshAgent.enabled = false;
+        float completionAmount = 0f;
+        float rotationCompletionAmount = 0f;
+        while (completionAmount < _standUpBackTime)
+        {
+            if (rotationCompletionAmount < 0.25f)
+            {
+                rotationCompletionAmount = (completionAmount / _standUpBackTime) / 2f;
+            }
+
+            else
+            {
+                rotationCompletionAmount += Time.deltaTime * 1f;
+            }
+
+
+            this.transform.rotation = Quaternion.Euler(Mathf.Lerp(90, 0, rotationCompletionAmount), this.transform.rotation.y, this.transform.rotation.z);
+
+            completionAmount += Time.deltaTime;
+            _animator.Play(ZombieAnimations.StandUp_Front.ToString());
+            yield return null;
+        }
+
+        _navMeshAgent.enabled = true;
+        _zombieController.playingAnimation = false;
         yield return null;
     }
 }

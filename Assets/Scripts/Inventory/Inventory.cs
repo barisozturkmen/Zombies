@@ -29,14 +29,46 @@ public class Inventory : MonoBehaviour {
 
     public List<Item> items = new List<Item>();
 
-    public bool AddItem (Item item)
+    public bool AddItem (Item itemToAdd)
     {
-        if (items.Count >= space)
+        //add to already existing stack if possible
+        if (itemToAdd is Stackable)
         {
-            Debug.Log("No more space in inventory");
+            bool itemAdded = false;
+            Debug.Log("Recognised object is stackable");
+            foreach (Item item in items)
+            {
+                //is common stack found, add to it
+                if (itemToAdd.name == item.name)
+                {
+                    Debug.Log("Match found");
+                    Stackable itemStack = item as Stackable;
+                    Stackable itemToAddStack = itemToAdd as Stackable;
+                    itemStack.quantity += itemToAddStack.quantity;
+                    itemAdded = true;
+                    break;
+                }
+            }
+            if (itemAdded == false)
+            {
+                Debug.Log("Match not found");
+                if (SpaceAvailable())
+                {
+                    items.Add(itemToAdd);
+                }
+            }
+
+        }
+        else if (SpaceAvailable() == false)
+        {
             return false;
         }
-        items.Add(item);
+        else
+        {
+            Debug.Log("Shouldnt see this");
+            items.Add(itemToAdd);
+        }
+
         if (onItemChangedCallback != null)
         {
             onItemChangedCallback.Invoke();
@@ -53,5 +85,16 @@ public class Inventory : MonoBehaviour {
         }
         GameObject itemOnGroundGO = Instantiate(itemOnGround, this.transform.position, this.transform.rotation);
         itemOnGroundGO.GetComponent<ItemOnGround>().item = item;
+    }
+
+    private bool SpaceAvailable()
+    {
+        if (items.Count >= space)
+        {
+            Debug.Log("No more space in inventory");
+            return false;
+        }
+        else
+            return true;
     }
 }

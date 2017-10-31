@@ -5,15 +5,20 @@ using System;
 
 public enum FireMode { Single, Burst, Auto };
 public enum WeaponType { Pistol, Shotgun };
+public enum AmmoType { NineMil, Shotgun }
 
 public abstract class Gun : MonoBehaviour {
 
     public Transform[] projectileSpawn;
     public Projectile projectile;
 
+    [NonSerialized] public float range;
     [NonSerialized] public float shotTime;
     [NonSerialized] public float muzzleVelocity;
     [NonSerialized] public float reloadTime;
+    [NonSerialized] public AmmoType ammoType;
+    public int magazineCapacity;
+    public int ammoInMagazine;
 
     public GameObject bullet;
     public Transform shell;
@@ -32,6 +37,8 @@ public abstract class Gun : MonoBehaviour {
     public AudioSource audioSource;
     public float nextPossibleShootTime;
     public bool triggerReleasedSinceLastShot = true;
+
+    public LayerMask hitableLayerID;
 
     public virtual void Shoot()
     {
@@ -96,5 +103,12 @@ public abstract class Gun : MonoBehaviour {
         shotsRemainingInBurst = burstCount;
     }
 
-
+    public virtual bool CanReload()
+    {
+        foreach (Item item in Inventory.instance.items)
+        {
+            //if ()
+        }
+        return false;
+    }
 }

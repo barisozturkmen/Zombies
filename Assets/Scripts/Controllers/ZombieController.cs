@@ -23,7 +23,7 @@ public class ZombieController : MonoBehaviour {
     private Stats _stats;
 
 
-	void Start () {
+    void Start () {
         _zombieAnimator = this.GetComponent<ZombieAnimator>();
         _target = PlayerManager.instance.player.transform;
         _agent = this.GetComponent<NavMeshAgent>();
@@ -32,71 +32,81 @@ public class ZombieController : MonoBehaviour {
         _stats = this.GetComponent<Stats>();
     }
 
-	//void Update () {
-    //    float distance = Vector3.Distance(_target.position, transform.position);
-    //    //if (playingAnimation == false)
-    //    //{
-    //    //    Debug.Log("attacking");
-    //    //    AttackTarget();
-    //    //}
-    //
-    //
-    //    //if in range and not attacking, face target
-    //    //if facing, attack
-    //    //if not in range, check if player detected
-    //    //if detected move to player
-    //    if (distance <= attackRangeRadius)
+	void Update () {
+        float distance = Vector3.Distance(_target.position, transform.position);
+        //if (playingAnimation == false)
+        //{
+        //    Debug.Log("attacking");
+        //    AttackTarget();
+        //}
+
+
+        //if in range and not attacking, face target
+        //if facing, attack
+        //if not in range, check if player detected
+        //if detected move to player
+        if (distance <= attackRangeRadius)
+        {
+            isWalking = false;
+            _followPlayer = false;
+            if (playingAnimation == false)
+            {
+                //FaceTarget();
+                if ((Vector3.Angle(transform.forward, _target.transform.position - transform.position) < attackAngle))
+                {
+                    {
+                        Debug.Log("attacking");
+                        AttackTarget();
+                    }
+                }
+            }
+        }
+    
+    
+        //if within sight/heariing - follow
+        else if (distance <= lookRadius ||
+            _gunController.equippedGun.isShooting && distance <= hearingRadius)
+        {
+            _followPlayer = true;
+        }
+        //if outside of disengage radius, within attack range or playing anim - stop
+        else if (distance >= disengageRadius ||
+            distance <= attackRangeRadius)
+        {
+            _followPlayer = false;
+            _agent.SetDestination(this.transform.position);
+        }
+    
+    
+    
+        if (_followPlayer == true && playingAnimation == false)
+        {
+            _agent.SetDestination(_target.position);
+            if (isWalking == true)
+            {
+                _zombieAnimator.PlayWalkRandom();
+            }
+            else
+            {
+                _zombieAnimator.PlayWalkStartRandom();
+            }
+        }
+        else if (_agent.enabled == true)
+        {
+            _agent.SetDestination(this.transform.position);
+        }
+    
+
+    
+    }
+
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.gameObject.layer == _hitableLayerID.value)
     //    {
-    //        isWalking = false;
-    //        _followPlayer = false;
-    //        if (playingAnimation == false)
-    //        {
-    //            //FaceTarget();
-    //            if ((Vector3.Angle(transform.forward, _target.transform.position - transform.position) < attackAngle))
-    //            {
-    //                {
-    //                    Debug.Log("attacking");
-    //                    AttackTarget();
-    //                }
-    //            }
-    //        }
+    //        _stats.hitPoints -= 15f;
+    //        Debug.Log("Remaining HP: " + _stats.hitPoints);
     //    }
-    //
-    //
-    //    //if within sight/heariing - follow
-    //    else if (distance <= lookRadius ||
-    //        _gunController.equippedGun.isShooting && distance <= hearingRadius)
-    //    {
-    //        _followPlayer = true;
-    //    }
-    //    //if outside of disengage radius, within attack range or playing anim - stop
-    //    else if (distance >= disengageRadius ||
-    //        distance <= attackRangeRadius)
-    //    {
-    //        _followPlayer = false;
-    //        _agent.SetDestination(this.transform.position);
-    //    }
-    //
-    //
-    //
-    //    if (_followPlayer == true && playingAnimation == false)
-    //    {
-    //        _agent.SetDestination(_target.position);
-    //        if (isWalking == true)
-    //        {
-    //            _zombieAnimator.PlayWalkRandom();
-    //        }
-    //        else
-    //        {
-    //            _zombieAnimator.PlayWalkStartRandom();
-    //        }
-    //    }
-    //    else
-    //    {
-    //        _agent.SetDestination(this.transform.position);
-    //    }
-    //
-    //
     //}
 
     private void FaceTarget()
