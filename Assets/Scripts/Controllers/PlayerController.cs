@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour {
     private MouseController _mouseController = new MouseController();
     private PlayerAnimator _playerAnimator;
     private PlayerInteractor _playerInteractor;
+    private Stats _stats;
 
     public bool playingAnimation = false;
     public bool isAiming = false;
@@ -39,7 +40,7 @@ public class PlayerController : MonoBehaviour {
         _playerAnimator = GetComponent<PlayerAnimator>();
         _playerInteractor = GetComponent<PlayerInteractor>();
         _mouseController.interactableLayerId = _playerInteractor.interactableLayerId;
-
+        _stats = GetComponent<Stats>();
 
 
     }
@@ -98,6 +99,7 @@ public class PlayerController : MonoBehaviour {
             }
             else if (Input.GetButton("Reload"))
             {
+                if (_gun.CanReload())
                 _playerAnimator.PlayReload();
             }
             else if (Input.GetButtonUp("Shoot"))

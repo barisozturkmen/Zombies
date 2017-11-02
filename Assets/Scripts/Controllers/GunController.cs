@@ -73,7 +73,7 @@ public class GunController : MonoBehaviour {
             //_player.SetWeaponAnimator(_equippedGun.weaponType);
             //_equippedGun.transform.localScale = _player.transform.localScale;
             equippedGunGO.transform.Rotate(0, -90, 0);
-
+            
         }
 
     }

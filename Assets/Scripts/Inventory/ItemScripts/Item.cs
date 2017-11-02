@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "Item Name", menuName = "Inventory/Item")]
-public class Item : ScriptableObject {
+public class Item {
 
     new public string name = "Item Name";
     public Sprite icon = null;
@@ -9,8 +8,17 @@ public class Item : ScriptableObject {
 
     public virtual void Use()
     {
-        Debug.Log("using " + name);
+        //Debug.Log("LOL");
+        //Debug.Log("using " + name);
     }
 
+    public virtual Item Copy()
+    {
+        Item copiedItem = new Item();
+        copiedItem.name = this.name;
+        copiedItem.icon = this.icon;
+        copiedItem.isDefaultItem = this.isDefaultItem;
+        return copiedItem;
+    }
     
 }

@@ -11,8 +11,10 @@ public class InventorySlot : MonoBehaviour {
 
     public void Additem(Item newitem)
     {
-        item = newitem;
 
+        //Debug.Log(newitem.name);
+        item = newitem;
+        //Debug.Log(item.name);
         icon.sprite = item.icon;
         icon.enabled = true;
         removeButtonGO.SetActive(true);
@@ -20,14 +22,30 @@ public class InventorySlot : MonoBehaviour {
         if (item is Stackable)
         {
             Stackable stackableItem = item as Stackable;
+            if (stackableItem.quantity <= 0)
+            {
+                Inventory.instance.DestroyItem(stackableItem);
+            }
+            else
+            {
+                quantity.enabled = true;
+                quantity.text = stackableItem.quantity.ToString();
+            }
+        }
+        else if (item is Weapon)
+        {
+            Weapon weapon = item as Weapon;
+            //Debug.Log(weapon.gun.name);
+            //Debug.Log(weapon.gun.ammoInMagazine);
+            weapon.ammo = weapon.gun.ammoInMagazine;
             quantity.enabled = true;
-            quantity.text = stackableItem.quantity.ToString();
+            quantity.text = weapon.ammo.ToString();
         }
         else
         {
             quantity.enabled = false;
         }
-
+        //Debug.Log(item.name);
     }
 
     public void ClearSlot()

@@ -34,6 +34,11 @@ public class ZombieController : MonoBehaviour {
 
 	void Update () {
         float distance = Vector3.Distance(_target.position, transform.position);
+        if (_stats.hitPoints <= 0)
+        {
+            //StopAllCoroutines();
+            //_zombieAnimator.PlayKnockdownBack();
+        }
         //if (playingAnimation == false)
         //{
         //    Debug.Log("attacking");

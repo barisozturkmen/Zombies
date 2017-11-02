@@ -8,6 +8,7 @@ public class GunPistol : Gun {
 
     public GunPistol()
     {
+        damage = 15;
         range = 100f;
         shotTime = 0.6f;
         muzzleVelocity = 150f;
@@ -24,6 +25,18 @@ public class GunPistol : Gun {
     {
         audioSource = this.GetComponent<AudioSource>();
         muzzleFlash = this.GetComponent<MuzzleFlash>();
+
+        //foreach (var item in Inventory.instance.items)
+        //{
+        //    if (item is Weapon)
+        //    {
+        //        Weapon possibleWeaponItem = item as Weapon;
+        //        if (possibleWeaponItem.weaponType == weaponType)
+        //        {
+        //            weaponItem = possibleWeaponItem;
+        //        }
+        //    }
+        //}
     }
 
     public override void Shoot()
@@ -56,9 +69,17 @@ public class GunPistol : Gun {
             Vector3 forward = this.transform.TransformDirection(Vector3.forward);
             if (Physics.Raycast(transform.position, forward, out hit, range, hitableLayerID))
             {
-                Debug.Log("HIT ZOMBIE!!");
+                ZombieAnimator zombieAnimator = hit.transform.gameObject.GetComponent<ZombieAnimator>();
+                
+                Stats stats = hit.transform.gameObject.GetComponent<Stats>();
+
+                zombieAnimator.StopAllCoroutines();
+                zombieAnimator.PlayHit();
+                DamageController.instance.DamageObject(damage, stats);
             }
             ammoInMagazine -= 1;
+            Inventory.instance.onItemChangedCallback.Invoke();
+            weaponItem.ammo = ammoInMagazine;
             audioSource.Play();
             Instantiate(shell, shellEjector.position, shellEjector.rotation);
             muzzleFlash.Activate();

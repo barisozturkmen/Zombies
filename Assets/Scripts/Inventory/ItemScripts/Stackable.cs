@@ -2,9 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Item Name", menuName = "Inventory/Stackable")]
 public class Stackable : Item {
 
     public int quantity;
 
+    public override Item Copy()
+    {
+        Stackable copiedItem = base.Copy() as Stackable;
+        copiedItem.quantity = this.quantity;
+        return copiedItem;
+    }
 }

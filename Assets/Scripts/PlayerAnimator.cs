@@ -111,6 +111,12 @@ public class PlayerAnimator : MonoBehaviour {
         }
     }
 
+    public void PlayShotgunReloadFinishCo()
+    {
+        StopAllCoroutines();
+        StartCoroutine(PlayShotgunReloadFinish());
+    }
+
     private IEnumerator PlayUnequppedDefault()
     {
         _animator.Play(PlayerAnimations.Default.ToString());
@@ -153,6 +159,7 @@ public class PlayerAnimator : MonoBehaviour {
             _animator.Play(PlayerAnimations.Pistol_Reload.ToString());
             yield return null;
         }
+        _equippedGun.Reload();
         _playerController.playingAnimation = false;
     }
 
@@ -190,6 +197,7 @@ public class PlayerAnimator : MonoBehaviour {
     private IEnumerator PlayShotgunReload()
     {
         GunShotgun equippedShotgun = _equippedGun as GunShotgun;
+        equippedShotgun.stopReload = false;
         _playerController.playingAnimation = true;
         yield return new WaitForSeconds(0.1f);
         float completionAmount = 0;
@@ -199,20 +207,38 @@ public class PlayerAnimator : MonoBehaviour {
             _animator.Play(PlayerAnimations.Shotgun_ReloadMain.ToString());
             yield return null;
         }
-
-        for (int i = 0; i < 5; i++)
+        int shellsMissing = equippedShotgun.magazineCapacity - equippedShotgun.ammoInMagazine;
+        for (int i = 0; i < shellsMissing; i++)
         {
             completionAmount = 0;
+            if (equippedShotgun.stopReload)
+            {
+                _playerController.playingAnimation = false;
+                PlayShotgunReloadFinishCo();
+            }
+
             while (completionAmount < equippedShotgun.loadShellTime)
             {
                 completionAmount += Time.deltaTime;
                 _animator.Play(PlayerAnimations.Shotgun_ReloadShell.ToString());
                 yield return null;
             }
+            _equippedGun.Reload();
+
             _animator.Play(PlayerAnimations.Shotgun_ReloadShell.ToString(), -1, 0f);
         }
 
+        PlayShotgunReloadFinishCo();
+    }
+
+    private IEnumerator PlayShotgunReloadFinish()
+    {
+        Debug.Log("playing reload finish");
+        GunShotgun equippedShotgun = _equippedGun as GunShotgun;
+        _playerController.playingAnimation = true;
+        float completionAmount = 0;
         completionAmount = 0f;
+
         float endTime = equippedShotgun.reloadEndTime;
         while (completionAmount < endTime)
         {
@@ -232,5 +258,25 @@ public class PlayerAnimator : MonoBehaviour {
 
         _playerController.playingAnimation = false;
     }
-
 }
+
+
+//completionAmount = 0f;
+//float endTime = equippedShotgun.reloadEndTime;
+//while (completionAmount < endTime)
+//{
+//    completionAmount += Time.deltaTime;
+//    _animator.Play(PlayerAnimations.Shotgun_ReloadEnd.ToString());
+//    yield return null;
+//}
+//
+//completionAmount = 0f;
+//float pumpTime = equippedShotgun.pumpTime;
+//while (completionAmount < pumpTime)
+//{
+//    completionAmount += Time.deltaTime;
+//    _animator.Play(PlayerAnimations.Shotgun_Pump.ToString());
+//    yield return null;
+//}
+//
+//_playerController.playingAnimation = false;

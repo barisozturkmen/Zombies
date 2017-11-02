@@ -73,7 +73,6 @@ public class ZombieAnimator : MonoBehaviour {
                     break;
                 case "SwipeLeftHand":
                     _swipeAttackTime = clip.length;
-                    Debug.Log(_swipeAttackTime);
                 break;
                 case "Hit":
                     _hitTime = clip.length;
@@ -93,7 +92,6 @@ public class ZombieAnimator : MonoBehaviour {
                 case "StandUpFront":
                     _standUpFrontTime = clip.length;
                     break;
-
             }
         }
     }

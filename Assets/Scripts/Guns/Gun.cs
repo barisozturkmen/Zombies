@@ -11,19 +11,22 @@ public abstract class Gun : MonoBehaviour {
 
     public Transform[] projectileSpawn;
     public Projectile projectile;
-
+    [NonSerialized] public int damage;
     [NonSerialized] public float range;
     [NonSerialized] public float shotTime;
     [NonSerialized] public float muzzleVelocity;
     [NonSerialized] public float reloadTime;
     [NonSerialized] public AmmoType ammoType;
+
+    public Weapon weaponItem;
     public int magazineCapacity;
-    public int ammoInMagazine;
+    public int ammoInMagazine = 0;
 
     public GameObject bullet;
     public Transform shell;
     public Transform shellEjector;
     public Transform spawn;
+
 
     public WeaponType weaponType;
     public FireMode fireMode;
@@ -90,7 +93,6 @@ public abstract class Gun : MonoBehaviour {
         return canShoot;
     }
 
-
     public virtual void OnTriggerHold()
     {
         Shoot();
@@ -105,10 +107,60 @@ public abstract class Gun : MonoBehaviour {
 
     public virtual bool CanReload()
     {
+        if (ammoInMagazine == magazineCapacity)
+        {
+            return false;
+        }
         foreach (Item item in Inventory.instance.items)
         {
-            //if ()
+            if (item is Ammo)
+            {
+                Ammo ammo = item as Ammo;
+                if (ammo.ammoType == this.ammoType)
+                {
+                    return true;
+                }
+            }
         }
         return false;
+    }
+
+    public virtual void Reload()
+    {
+        int ammoToReload = 0;
+        Ammo ammo = null;
+        foreach (Item item in Inventory.instance.items)
+        {
+            if (item is Ammo)
+            {
+                ammo = item as Ammo;
+                if (ammo.ammoType == this.ammoType)
+                {
+                    if (ammo.quantity >= magazineCapacity - ammoInMagazine)
+                    {
+                        ammoToReload = magazineCapacity - ammoInMagazine;
+                    }
+                    else
+                    {
+                        ammoToReload = ammo.quantity;
+                    }
+                    ammo.quantity -= ammoToReload;
+                    ammoInMagazine += ammoToReload;
+                }
+            }
+        }
+        if (ammo.quantity == 0)
+        {
+            Inventory.instance.DestroyItem(ammo);
+        }
+        else
+        {
+            Inventory.instance.UpdateUI();
+        }
+    }
+
+    public virtual void AssignWeapon(Weapon weapon)
+    {
+        weaponItem = weapon;
     }
 }

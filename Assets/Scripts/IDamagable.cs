@@ -2,9 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stats : MonoBehaviour{
+public class IDamagable {
 
     public int hitPoints;
-    public int armor;
+
+    //public void TakeDamage()
+    //{
+    //
+    //}
+
 
 }

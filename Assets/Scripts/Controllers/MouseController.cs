@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MouseController {
 
-    private float _yOffset = 0.61f;
+    private float _yOffset = 0.5833334f;
 
     public LayerMask interactableLayerId;
 

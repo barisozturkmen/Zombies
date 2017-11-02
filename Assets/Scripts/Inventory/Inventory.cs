@@ -35,13 +35,11 @@ public class Inventory : MonoBehaviour {
         if (itemToAdd is Stackable)
         {
             bool itemAdded = false;
-            Debug.Log("Recognised object is stackable");
             foreach (Item item in items)
             {
                 //is common stack found, add to it
                 if (itemToAdd.name == item.name)
                 {
-                    Debug.Log("Match found");
                     Stackable itemStack = item as Stackable;
                     Stackable itemToAddStack = itemToAdd as Stackable;
                     itemStack.quantity += itemToAddStack.quantity;
@@ -51,9 +49,9 @@ public class Inventory : MonoBehaviour {
             }
             if (itemAdded == false)
             {
-                Debug.Log("Match not found");
                 if (SpaceAvailable())
                 {
+                    //Item itemCopy = itemToAdd.Copy();
                     items.Add(itemToAdd);
                 }
             }
@@ -65,7 +63,7 @@ public class Inventory : MonoBehaviour {
         }
         else
         {
-            Debug.Log("Shouldnt see this");
+            //Item itemCopy = itemToAdd.Copy();
             items.Add(itemToAdd);
         }
 
@@ -76,15 +74,62 @@ public class Inventory : MonoBehaviour {
         return true;
     }
 
-    public void RemoveItem (Item item)
+    public void RemoveItem(Item item)
     {
+        //Debug.Log(item.name);
         items.Remove(item);
         if (onItemChangedCallback != null)
         {
             onItemChangedCallback.Invoke();
         }
         GameObject itemOnGroundGO = Instantiate(itemOnGround, this.transform.position, this.transform.rotation);
-        itemOnGroundGO.GetComponent<ItemOnGround>().item = item;
+        Debug.Log("dropping item: " + item.name);
+
+
+        if (item is Weapon)
+        {
+            WeaponPickup weaponPickup = itemOnGroundGO.AddComponent<WeaponPickup>();
+            weaponPickup.ConfigurePickup(item);
+        }
+        else if (item is Equipment)
+        {
+            EquipmentPickup equipmentPickup = itemOnGroundGO.AddComponent<EquipmentPickup>();
+            equipmentPickup.ConfigurePickup(item);
+        }
+        else if (item is Ammo)
+        {
+            AmmoPickup ammoPickup = itemOnGroundGO.AddComponent<AmmoPickup>();
+            ammoPickup.ConfigurePickup(item);
+        }
+        else if (item is Stackable)
+        {
+            StackablePickup stackablePickup = itemOnGroundGO.AddComponent<StackablePickup>();
+            stackablePickup.ConfigurePickup(item);
+        }
+        else
+        {
+            ItemPickup itemPickup = itemOnGroundGO.AddComponent<ItemPickup>();
+            itemPickup.ConfigurePickup(item);
+        }
+
+        //Debug.Log(item);
+    }
+
+    public void DestroyItem(Stackable stackableItem)
+    {
+        items.Remove(stackableItem);
+        if (onItemChangedCallback != null)
+        {
+            onItemChangedCallback.Invoke();
+        }
+    }
+
+    public void UpdateUI()
+    {
+        if (onItemChangedCallback != null)
+        {
+            onItemChangedCallback.Invoke();
+        }
     }
 
     private bool SpaceAvailable()

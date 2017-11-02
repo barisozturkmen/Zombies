@@ -2,9 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Item Name", menuName = "Inventory/Ammo")]
 public class Ammo : Stackable {
 
     public AmmoType ammoType;
 
+    public override Item Copy()
+    {
+        Ammo copiedItem = base.Copy() as Ammo;
+        copiedItem.ammoType = this.ammoType;
+        return copiedItem;
+    }
 }

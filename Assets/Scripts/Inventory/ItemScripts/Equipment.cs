@@ -5,7 +5,6 @@ using UnityEngine;
 
 public enum EquipmentSlot { Head, Chest, Back, Legs, Feet, Weapon }
 
-[CreateAssetMenu(fileName = "New Equipment", menuName = "Inventory/Equipment")]
 public class Equipment : Item {
 
     //public int armorModifier;
@@ -16,5 +15,12 @@ public class Equipment : Item {
     {
         base.Use();
         EquipmentManager.instance.Equip(this);
+    }
+
+    public override Item Copy()
+    {
+        Equipment copiedItem = base.Copy() as Equipment;
+        copiedItem.equipmentSlot = this.equipmentSlot;
+        return copiedItem;
     }
 }

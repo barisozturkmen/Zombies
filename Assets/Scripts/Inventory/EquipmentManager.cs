@@ -8,7 +8,7 @@ public class EquipmentManager : MonoBehaviour {
 
     public static EquipmentManager instance;
 
-    Inventory inventory;
+
 
     private void Awake()
     {
@@ -19,7 +19,7 @@ public class EquipmentManager : MonoBehaviour {
 
     public delegate void OnEquipmentChanged(Equipment newItem, Equipment oldItem);
     public OnEquipmentChanged onEquipmentChanged;
-
+    private Inventory inventory;
     private Equipment[] currentEquipment;
     private GunController _gunController;
 
@@ -35,6 +35,7 @@ public class EquipmentManager : MonoBehaviour {
 
     public void Equip (Equipment newItem)
     {
+        Debug.Log("trying to equip item");
         int slotIndex = (int)newItem.equipmentSlot;
 
         Equipment oldItem = null;
@@ -48,11 +49,25 @@ public class EquipmentManager : MonoBehaviour {
                 inventory.AddItem(oldItem);
             }
         }
-        else
+        //if (oldItem is Weapon)
+        //{
+        //
+        //}
+        if (newItem is Weapon)
         {
+            if (currentEquipment[slotIndex] != null)
+            {
+                Weapon oldWeapon = currentEquipment[slotIndex] as Weapon;
+                oldWeapon.ammo = _gunController.equippedGun.ammoInMagazine;
+            }
+
+            Debug.Log("trying to equip gun");
             Weapon newWeapon = newItem as Weapon;
             _gunController.EquipGun(newWeapon.weaponType);
+            newWeapon.gun = _gunController.equippedGun;
+            _gunController.equippedGun.ammoInMagazine = newWeapon.ammo;
         }
+
 
         if (onEquipmentChanged != null)
         {
@@ -64,10 +79,17 @@ public class EquipmentManager : MonoBehaviour {
 
     public void Unequip (int slotIndex)
     {
+        Debug.Log("LLLLLLLLL");
         if (currentEquipment[slotIndex] != null)
         {
             Equipment oldItem = currentEquipment[slotIndex];
             currentEquipment[slotIndex] = null;
+            if (oldItem is Weapon)
+            {
+                Debug.Log("saving ammo");
+                Weapon oldWeapon = oldItem as Weapon;
+                oldWeapon.ammo = _gunController.equippedGun.ammoInMagazine;
+            }
             if (inventory.AddItem(oldItem))
             {
                 return;

@@ -27,7 +27,7 @@ public class PlayerInteractor : MonoBehaviour {
 
     public void InteractWithItem(GameObject interactableItemGO, bool isInRange)
     {
-        Item item = interactableItemGO.GetComponent<ItemOnGround>().item;
+        Item item = interactableItemGO.GetComponent<ItemPickup>().GetInstance();
         if (interactableItemGO != null && isInRange)
         {
             //if (Inventory.instance.items.Count >= Inventory.instance.space)
@@ -38,7 +38,6 @@ public class PlayerInteractor : MonoBehaviour {
 
             if (Inventory.instance.AddItem(item))
             {
-                Debug.Log("Picking up " + item.name);
                 Destroy(interactableItemGO);
             }
         }

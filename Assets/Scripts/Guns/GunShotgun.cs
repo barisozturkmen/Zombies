@@ -12,10 +12,11 @@ public class GunShotgun: Gun
         shotTime = 0.6f;
         muzzleVelocity = 150f;
         reloadTime = 1f;
-        weaponType = WeaponType.Pistol;
+        weaponType = WeaponType.Shotgun;
         fireMode = FireMode.Single;
         burstCount = 0;
         shotsRemainingInBurst = burstCount;
+        ammoType = AmmoType.Shotgun;
         magazineCapacity = 5;
     }
 
@@ -24,6 +25,7 @@ public class GunShotgun: Gun
     public float pumpTime = 0.6f;
     public float loadShellTime = 0.6f;
     public float reloadEndTime = 0.6f;
+    public bool stopReload = false;
 
     private void Start()
     {
@@ -94,6 +96,8 @@ public class GunShotgun: Gun
             //}
 
             ammoInMagazine -= 1;
+            Inventory.instance.onItemChangedCallback.Invoke();
+            weaponItem.ammo = ammoInMagazine;
             audioSource.Play();
             Instantiate(shell, shellEjector.position, shellEjector.rotation);
             muzzleFlash.Activate();
@@ -112,7 +116,7 @@ public class GunShotgun: Gun
     public override bool CanShoot()
     {
         bool canShoot = true;
-        if (Time.time < nextPossibleShootTime && ammoInMagazine > 0)
+        if (Time.time < nextPossibleShootTime || (ammoInMagazine <= 0))
         {
             canShoot = false;
         }
@@ -130,4 +134,48 @@ public class GunShotgun: Gun
         triggerReleasedSinceLastShot = true;
         shotsRemainingInBurst = burstCount;
     }
+
+
+    public override void Reload()
+    {
+        Debug.Log("reload counter");
+        int ammoToReload = 0;
+        Ammo ammo = null;
+        foreach (Item item in Inventory.instance.items)
+        {
+            if (item is Ammo)
+            {
+                ammo = item as Ammo;
+                if (ammo.ammoType == this.ammoType)
+                {
+                    if (ammo.quantity > 0 && 
+                        ammoInMagazine < magazineCapacity)
+                    {
+                        ammoToReload = 1;
+                    }
+                    else
+                    {
+                        ammoToReload = 0;
+                        stopReload = true;
+                        //stop coroutines, skip to end reload animation
+                        Debug.Log("stopReload bool set to true");
+                    }
+                    ammo.quantity -= ammoToReload;
+                    ammoInMagazine += ammoToReload;
+                }
+            }
+        }
+        if (ammo.quantity == 0)
+        {
+            stopReload = true;
+            Inventory.instance.DestroyItem(ammo);
+        }
+        else
+        {
+            Inventory.instance.UpdateUI();
+        }
+    }
+
+
+
 }
