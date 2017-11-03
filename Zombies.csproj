@@ -90,6 +90,7 @@
     <Compile Include="Assets\Scripts\Guns\Gun.cs" />
     <Compile Include="Assets\Scripts\Guns\GunPistol.cs" />
     <Compile Include="Assets\Scripts\Guns\GunShotgun.cs" />
+    <Compile Include="Assets\Scripts\Guns\Unarmed.cs" />
     <Compile Include="Assets\Scripts\IDamagable.cs" />
     <Compile Include="Assets\Scripts\Inventory\EquipmentManager.cs" />
     <Compile Include="Assets\Scripts\Inventory\Inventory.cs" />
@@ -113,6 +114,7 @@
     <Compile Include="Assets\Scripts\Projectile.cs" />
     <Compile Include="Assets\Scripts\ShellEjector.cs" />
     <Compile Include="Assets\Scripts\ZombieAnimator.cs" />
+    <Compile Include="Assets\ZombieParent.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

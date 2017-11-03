@@ -13,8 +13,11 @@ public class ZombieController : MonoBehaviour {
     public float turnSpeed = 5f;
     public bool isWalking = false;
     public bool playingAnimation = false;
+    public bool knockedBack = false;
+    public bool knockedFront = false;
 
     private ZombieAnimator _zombieAnimator;
+    private Animator _animator;
     private Transform _target;
     private NavMeshAgent _agent;
     private GunController _gunController;
@@ -25,6 +28,7 @@ public class ZombieController : MonoBehaviour {
 
     void Start () {
         _zombieAnimator = this.GetComponent<ZombieAnimator>();
+        _animator = this.GetComponentInChildren<Animator>();
         _target = PlayerManager.instance.player.transform;
         _agent = this.GetComponent<NavMeshAgent>();
         _gunController = GunController.instance;
@@ -33,12 +37,19 @@ public class ZombieController : MonoBehaviour {
     }
 
 	void Update () {
+        //if (_target == null)
+        //{
+        //    _target = PlayerManager.instance.player.transform;
+        //}
+
         float distance = Vector3.Distance(_target.position, transform.position);
+
         if (_stats.hitPoints <= 0)
         {
             //StopAllCoroutines();
             //_zombieAnimator.PlayKnockdownBack();
         }
+        _animator.SetBool("Hit", false);
         //if (playingAnimation == false)
         //{
         //    Debug.Log("attacking");
@@ -66,8 +77,8 @@ public class ZombieController : MonoBehaviour {
                 }
             }
         }
-    
-    
+
+
         //if within sight/heariing - follow
         else if (distance <= lookRadius ||
             _gunController.equippedGun.isShooting && distance <= hearingRadius)

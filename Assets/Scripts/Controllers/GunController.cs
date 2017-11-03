@@ -32,10 +32,10 @@ public class GunController : MonoBehaviour {
     void Start ()
     {
         //_player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-		if (startingGun != null)
-        {
-            EquipGun(startingGun.weaponType);
-        }
+		//if (startingGun != null)
+        //{
+        //    EquipGun(startingGun.weaponType);
+        //}
 	}
 	
 	// Update is called once per frame

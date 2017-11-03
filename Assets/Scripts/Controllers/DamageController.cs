@@ -15,30 +15,59 @@ public class DamageController : MonoBehaviour {
 
     #endregion
 
+    public bool isDead(Stats stats)
+    {
+        if (stats.hitPoints <= 0)
+        {
+            return true;
+        }
+        else
+            return false;
+    }
+
     public void DamageObject(int damage, Stats stats)
     {
         stats.hitPoints -= damage;
-        if (stats.transform.gameObject.GetComponent<ZombieController>())
+
+        //add tag identifier to if statements
+
+        ZombieAnimator zombieAnimator = stats.transform.gameObject.GetComponent<ZombieAnimator>();
+        int rng = Random.Range(0, 100);
+        if (stats.hitPoints <= 0)
         {
-            ZombieAnimator zombieAnimator = stats.transform.gameObject.GetComponent<ZombieAnimator>();
-            int rng = Random.Range(0, 100);
-            if (rng > 92)
+            if (rng > 50)
             {
                 zombieAnimator.PlayKnockdownBack();
             }
-            else if (rng > 85)
+            else
             {
                 zombieAnimator.PlayKnockdownFront();
             }
-            else if (rng > 65)
+        }
+
+        else 
+        {
+            rng *= damage;
+            if (rng > 1420)
             {
+                Debug.Log("playing knockback");
+                zombieAnimator.PlayKnockdownBack();
+            }
+            else if (rng > 1340)
+            {
+                Debug.Log("playing knockforwards");
+                zombieAnimator.PlayKnockdownFront();
+            }
+            else if (rng > 1200)
+            {
+                Debug.Log("playing stagger");
                 zombieAnimator.PlayStagger();
             }
             else
             {
+                Debug.Log("playing hit");
                 zombieAnimator.PlayHit();
             }
         }
     }
-
 }

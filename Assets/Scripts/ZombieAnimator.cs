@@ -13,10 +13,12 @@ public class ZombieAnimator : MonoBehaviour {
         Hit, Stagger,
         Knockdown_Back, Knockdown_Front, StandUp_Back, StandUp_Front
     }
+    public Transform zombieTransform;
 
     private Animator _animator;
     private ZombieController _zombieController;
     private NavMeshAgent _navMeshAgent;
+    private Stats _stats;
     private int _walkAnimation;
 
     private float _staggerAmount = 1.5f;
@@ -37,10 +39,11 @@ public class ZombieAnimator : MonoBehaviour {
     public PlayerController playercontroller;
     // Use this for initialization
     void Start () {
-        _animator = this.GetComponent<Animator>();
+        _animator = this.GetComponentInChildren<Animator>();
         _zombieController = this.GetComponent<ZombieController>();
         _navMeshAgent = this.GetComponent<NavMeshAgent>();
         _walkAnimation = (int)Mathf.Round(Random.Range(0, 2));
+        _stats = this.GetComponent<Stats>();
         UpdateAnimClipTimes();
     }
 	
@@ -278,10 +281,13 @@ public class ZombieAnimator : MonoBehaviour {
 
     private IEnumerator Hit()
     {
-        _animator.SetBool("Hit", true);
-        yield return new WaitForSeconds(_hitTime);
-        _animator.SetBool("Hit", false);
-        yield return null;
+        if (_zombieController.playingAnimation == false)
+        {
+            _animator.SetBool("Hit", true);
+            yield return new WaitForSeconds(_hitTime);
+            _animator.SetBool("Hit", false);
+            yield return null;
+        }
     }
 
     private IEnumerator Stagger()
@@ -306,7 +312,12 @@ public class ZombieAnimator : MonoBehaviour {
 
     private IEnumerator KnockdownBack()
     {
+        zombieTransform.GetComponent<ZombieParent>().followRotation = false;
+        float yRotation = zombieTransform.rotation.y;
+        float zRotation = zombieTransform.rotation.z;
+
         _zombieController.playingAnimation = true;
+        //_zombieController.knockedBack = true;
         _zombieController.isWalking = false;
         _navMeshAgent.enabled = false;
         float completionAmount = 0f;
@@ -320,12 +331,17 @@ public class ZombieAnimator : MonoBehaviour {
         {
             rotationCompletionAmount = (completionAmount * 3.2f);
 
-            this.transform.rotation = Quaternion.Euler(Mathf.Lerp(0, -90, rotationCompletionAmount), this.transform.rotation.y, this.transform.rotation.z);
+            zombieTransform.rotation = Quaternion.Euler(Mathf.Lerp(0, -90, rotationCompletionAmount), yRotation, zRotation);
             completionAmount += Time.deltaTime;
             _animator.Play(ZombieAnimations.Knockdown_Back.ToString());
             yield return null;
-
         }
+        //this.transform.rotation = Quaternion.Euler(90, yRotation, zRotation);
+        if (DamageController.instance.isDead(_stats) == false)
+        {
+            PlayStandUpBack();
+        }
+
         //_navMeshAgent.enabled = true;
         //_zombieController.playingAnimation = false;
         yield return null;
@@ -333,7 +349,11 @@ public class ZombieAnimator : MonoBehaviour {
 
     private IEnumerator KnockdownFront()
     {
+        zombieTransform.GetComponent<ZombieParent>().followRotation = false;
+        float yRotation = zombieTransform.rotation.y;
+        float zRotation = zombieTransform.rotation.z;
         _zombieController.playingAnimation = true;
+        //_zombieController.knockedFront = true;
         _zombieController.isWalking = false;
         _navMeshAgent.enabled = false;
         float completionAmount = 0f;
@@ -349,7 +369,7 @@ public class ZombieAnimator : MonoBehaviour {
             //    completionAmount < _knockdownBackTime / 1.5)
             //{
             //height = Mathf.Lerp(0, 0.61f, rotationCompletionAmount * 2f);
-            this.transform.rotation = Quaternion.Euler(Mathf.Lerp(0, 90, rotationCompletionAmount), this.transform.rotation.y, this.transform.rotation.z);
+            zombieTransform.rotation = Quaternion.Euler(Mathf.Lerp(0, 90, rotationCompletionAmount), yRotation, zRotation);
 
 
             //}
@@ -359,8 +379,14 @@ public class ZombieAnimator : MonoBehaviour {
             yield return null;
 
         }
-        _navMeshAgent.enabled = true;
-        _zombieController.playingAnimation = false;
+        //this.transform.rotation = Quaternion.Euler(90, yRotation, zRotation);
+        if (DamageController.instance.isDead(_stats) == false)
+        {
+            PlayStandUpFront();
+        }
+
+        //_navMeshAgent.enabled = true;
+        //_zombieController.playingAnimation = false;
         yield return null;
     }
 
@@ -368,6 +394,7 @@ public class ZombieAnimator : MonoBehaviour {
     private IEnumerator StandUpBack()
     {
         _zombieController.playingAnimation = true;
+        //_zombieController.knockedBack = false;
         _zombieController.isWalking = false;
         _navMeshAgent.enabled = false;
         float completionAmount = 0f;
@@ -385,8 +412,7 @@ public class ZombieAnimator : MonoBehaviour {
             _animator.Play(ZombieAnimations.StandUp_Back.ToString());
             yield return null;
         }
-
-
+        zombieTransform.GetComponent<ZombieParent>().followRotation = true;
         _navMeshAgent.enabled = true;
         _zombieController.playingAnimation = false;
         yield return null;
@@ -395,6 +421,7 @@ public class ZombieAnimator : MonoBehaviour {
     private IEnumerator StandUpFront()
     {
         _zombieController.playingAnimation = true;
+        //_zombieController.knockedFront = false;
         _zombieController.isWalking = false;
         _navMeshAgent.enabled = false;
         float completionAmount = 0f;
@@ -405,20 +432,17 @@ public class ZombieAnimator : MonoBehaviour {
             {
                 rotationCompletionAmount = (completionAmount / _standUpBackTime) / 2f;
             }
-
             else
             {
                 rotationCompletionAmount += Time.deltaTime * 1f;
             }
 
-
             this.transform.rotation = Quaternion.Euler(Mathf.Lerp(90, 0, rotationCompletionAmount), this.transform.rotation.y, this.transform.rotation.z);
-
             completionAmount += Time.deltaTime;
             _animator.Play(ZombieAnimations.StandUp_Front.ToString());
             yield return null;
         }
-
+        zombieTransform.GetComponent<ZombieParent>().followRotation = true;
         _navMeshAgent.enabled = true;
         _zombieController.playingAnimation = false;
         yield return null;
